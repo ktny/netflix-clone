@@ -4,20 +4,20 @@ import "./Row.scss";
 
 const baseImageUrl = "https://image.tmdb.org/t/p/original";
 
-type Props = {
+export interface Props {
   title: string;
   apiUrl: string;
   isLarge?: boolean;
-};
+}
 
-type Movie = {
+export interface Movie {
   id: string;
   name: string;
   title: string;
   original_name: string;
   poster_path: string;
   backdrop_path: string;
-};
+}
 
 export const Row = ({ title, apiUrl, isLarge }: Props) => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -26,12 +26,9 @@ export const Row = ({ title, apiUrl, isLarge }: Props) => {
     const fetchData = async () => {
       const response = await axios.get(apiUrl);
       setMovies(response.data.results);
-      return response;
     };
     fetchData();
   }, [apiUrl]);
-
-  console.log(movies);
 
   return (
     <div className="row">
