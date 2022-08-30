@@ -6,7 +6,7 @@ const baseImageUrl = "https://image.tmdb.org/t/p/original";
 
 export interface Props {
   title: string;
-  apiUrl: string;
+  apiPath: string;
   isLarge?: boolean;
 }
 
@@ -19,16 +19,16 @@ export interface Movie {
   backdrop_path: string;
 }
 
-export const Row = ({ title, apiUrl, isLarge }: Props) => {
+export const Row = ({ title, apiPath, isLarge }: Props) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(apiUrl);
+      const response = await axios.get(apiPath);
       setMovies(response.data.results);
     };
     fetchData();
-  }, [apiUrl]);
+  }, [apiPath]);
 
   return (
     <div className="row">

@@ -1,4 +1,4 @@
-import { apiUrls } from "api-url";
+import { apiPaths } from "api-paths";
 import axios from "../axios";
 import { useEffect, useState } from "react";
 import "./Banner.scss";
@@ -18,17 +18,13 @@ export const Banner = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(apiUrls.netflixOriginals);
+      const response = await axios.get(apiPaths.netflixOriginals);
       const results = response.data.results;
       const randInt = Math.floor(Math.random() * results.length - 1);
-
-      console.log(results);
       setMovie(results[randInt]);
     }
     fetchData();
   }, []);
-
-  console.log(movie);
 
   const truncate = (str: string | undefined, n: number) => {
     if (!str) return;
