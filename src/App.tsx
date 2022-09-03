@@ -1,5 +1,6 @@
 // import React from "react"
 import { apiPaths } from "api-paths";
+import { Nav } from "components/Nav";
 import { Banner } from "components/Banner";
 import { Row } from "components/Row";
 import "./App.css";
@@ -7,6 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      <Nav />
       <Banner />
       <Row title="NETFLIX ORIGUINALS" apiPath={apiPaths.netflixOriginals} isLarge />
       <Row title="Top Rated" apiPath={apiPaths.topRated} />
