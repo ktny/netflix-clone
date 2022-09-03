@@ -1,5 +1,3 @@
-// const API_KEY = process.env.REACT_APP_API_KEY;
-
 export const apiPaths = {
   trending: `/trending/all/week?language=en-us`,
   netflixOriginals: `/discover/tv?with_networks=213`,
